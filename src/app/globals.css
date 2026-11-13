@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import "../styles/iso.css";
+@import "../styles/farm.css";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: #eef1ea;
+  color: #1c1917;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* the farm card fills the main column */
+.farm .iso-svg { width: 100%; height: auto; }
+
+@keyframes flash { from { opacity: 0.9; } to { opacity: 0; } }

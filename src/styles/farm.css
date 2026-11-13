@@ -1,0 +1,86 @@
+/* Solar farm figure: tokens layered on top of the anatomy kit (light theme). */
+.farm {
+  --grass-top: #c9d9a8;
+  --grass-0: #9fb57c;
+  --grass-1: #a9be86;
+  --grass-2: #b4c891;
+  --grass-3: #bfd29c;
+  --soil-0: #8a6f52;
+  --soil-1: #977b5c;
+  --soil-2: #a48866;
+  --soil-3: #b09471;
+  --leaf-0: #5f7f45;
+  --leaf-1: #6c8d4f;
+  --leaf-2: #7b9c5b;
+  --leaf-3: #8aab67;
+  --leaf-top: #a3c07d;
+  --pine-0: #40604a;
+  --pine-1: #4a6b53;
+  --pine-2: #55775d;
+  --pine-3: #618467;
+  --bark: #7c6450;
+  --pv-glass: #233a5e;
+  --pv-cell-line: #5d7aa6;
+  --pv-split: #7d97c0;
+  --dust-tint: #c4a473;
+  --dust-deep: #a7854f;
+  --speck-a: #8f7046;
+  --speck-b: #d8c39b;
+  --select: #f59e0b;
+  --scan: #0ea5e9;
+}
+
+.farm .turf { --anatomy-top: var(--grass-top); --anatomy-paper: var(--grass-1); --anatomy-shade-0: var(--grass-0); --anatomy-shade-1: var(--grass-1); --anatomy-shade-2: var(--grass-2); --anatomy-shade-3: var(--grass-3); --anatomy-mid: #8ea36c; --anatomy-faint: #a3b884; }
+.farm .soil { --anatomy-paper: var(--soil-1); --anatomy-top: var(--soil-3); --anatomy-shade-0: var(--soil-0); --anatomy-shade-1: var(--soil-1); --anatomy-shade-2: var(--soil-2); --anatomy-shade-3: var(--soil-3); --anatomy-mid: #6f583f; --anatomy-faint: #7d6447; --anatomy-dot: #5b4733; }
+.farm .grass-tufts { --anatomy-dot: #6f8a4a; }
+.farm .mow { fill: #b6ca93; opacity: 0.55; stroke: none; }
+.farm .asphalt { --anatomy-paper: #6d6f73; --anatomy-top: #7a7c80; --anatomy-shade-0: #55575b; --anatomy-shade-1: #5c5e62; --anatomy-shade-2: #63656a; --anatomy-shade-3: #6a6c70; --anatomy-lo: #5a5c60; }
+.farm .road-mark { --anatomy-hi: #f2f2ef; }
+.farm .road-mark .iso-line { fill: #f2f2ef; }
+.farm .gravel { --anatomy-paper: #d9d3c6; --anatomy-top: #dfd9cc; --anatomy-shade-0: #c3bcae; --anatomy-shade-1: #cbc4b6; --anatomy-shade-2: #d2cbbe; --anatomy-shade-3: #d7d1c4; --anatomy-lo: #bcb4a5; --anatomy-dot: #8f8676; }
+.farm .bark { --anatomy-paper: var(--bark); --anatomy-top: #8d7560; --anatomy-shade-0: #614c3b; --anatomy-shade-1: #6b5442; --anatomy-shade-2: #755d4a; --anatomy-shade-3: #7f6652; --anatomy-mid: #5a4636; }
+.farm .foliage { --anatomy-paper: var(--leaf-1); --anatomy-top: var(--leaf-top); --anatomy-shade-0: var(--leaf-0); --anatomy-shade-1: var(--leaf-1); --anatomy-shade-2: var(--leaf-2); --anatomy-shade-3: var(--leaf-3); --anatomy-mid: #557340; --anatomy-hi: #4c6a39; }
+.farm .foliage.dark { --anatomy-paper: var(--pine-1); --anatomy-top: #6f9474; --anatomy-shade-0: var(--pine-0); --anatomy-shade-1: var(--pine-1); --anatomy-shade-2: var(--pine-2); --anatomy-shade-3: var(--pine-3); --anatomy-mid: #3b5843; }
+.farm .tree-shadow { opacity: 0.22; filter: blur(5px); }
+.farm .container { --anatomy-top: #f4f5f7; --anatomy-shade-0: #d5d9df; --anatomy-shade-1: #dde1e6; --anatomy-shade-2: #e6e9ed; --anatomy-shade-3: #eef0f3; }
+.farm .container-door .door { fill: none; stroke: #9aa1ab; stroke-width: 0.6; vector-effect: non-scaling-stroke; }
+.farm .fence-mesh { fill: none; stroke: #9a9ea3; stroke-width: 0.35; opacity: 0.55; vector-effect: non-scaling-stroke; }
+
+/* PV modules */
+.farm .pv-glass { fill: var(--pv-glass); stroke: none; }
+.farm .pv-cells { fill: none; stroke: var(--pv-cell-line); stroke-width: 0.4; opacity: 0.75; vector-effect: non-scaling-stroke; }
+.farm .pv-split { fill: none; stroke: var(--pv-split); stroke-width: 0.6; vector-effect: non-scaling-stroke; }
+.farm .pv-sheen { fill: #ffffff; opacity: 0.07; stroke: none; }
+.farm .pv-clamp { fill: #c9cdd2; stroke: #8e949b; stroke-width: 0.3; vector-effect: non-scaling-stroke; }
+.farm .pv-dust { opacity: var(--dust, 0); transition: opacity 1.2s cubic-bezier(.32,.72,0,1); pointer-events: none; }
+.farm .pv-dust-tint { fill: url(#dust-grade); }
+.farm .pv-dust-speck { fill: url(#dust-speckle); opacity: 0.9; }
+.farm .speck-a { fill: var(--speck-a); opacity: 0.7; }
+.farm .speck-b { fill: var(--speck-b); opacity: 0.8; }
+.farm .pv-hit { fill: transparent; stroke: none; cursor: pointer; }
+.farm .pv-outline { fill: none; stroke: transparent; stroke-width: 1.6; vector-effect: non-scaling-stroke; pointer-events: none; transition: stroke 0.25s; }
+.farm .pv-table { outline: none; }
+.farm .pv-table:hover .pv-outline,
+.farm .pv-table:focus-visible .pv-outline { stroke: color-mix(in srgb, var(--select) 70%, transparent); }
+.farm .pv-table[data-selected] .pv-outline { stroke: var(--select); stroke-width: 2.2; }
+.farm .pv-table[data-scanning] .pv-outline { stroke: var(--scan); stroke-width: 2.2; animation: scan-pulse 0.9s ease-in-out infinite; }
+@keyframes scan-pulse { 50% { stroke-opacity: 0.35; } }
+
+/* heatmap mode: tint the glass by soiling severity */
+.farm[data-mode="heat"] .pv-glass { fill: var(--heat, var(--pv-glass)); transition: fill 0.6s; }
+.farm[data-mode="heat"] .pv-dust { opacity: 0; }
+
+/* drone */
+.farm .drone-layer { pointer-events: none; }
+.farm .drone { --anatomy-lit-top: #ffffff; --anatomy-lit-shade: #e9ecef; --anatomy-lit: #1f2937; opacity: 0; transition: opacity 0.6s; }
+.farm[data-flying] .drone { opacity: 1; }
+.farm .rotor-blur { fill: #94a3b8; fill-opacity: 0.16; stroke: #64748b; stroke-width: 0.4; stroke-opacity: 0.5; vector-effect: non-scaling-stroke; }
+.farm .drone-beam { fill: var(--scan); fill-opacity: 0.12; stroke: var(--scan); stroke-opacity: 0.55; stroke-width: 0.8; vector-effect: non-scaling-stroke; opacity: 0; transition: opacity 0.4s; }
+.farm[data-beam] .drone-beam { opacity: 1; }
+.farm .drone-shadow { fill: #1f2937; opacity: 0; filter: blur(3px); transition: opacity 0.6s; }
+.farm[data-flying] .drone-shadow { opacity: 0.18; }
+
+@media (prefers-reduced-motion: reduce) {
+  .farm .pv-dust, .farm .drone { transition: none; }
+  .farm .pv-table[data-scanning] .pv-outline { animation: none; }
+}
